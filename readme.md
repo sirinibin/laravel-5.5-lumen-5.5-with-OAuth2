@@ -1,4 +1,4 @@
-# Laravel Lumen RESTful API with OAuth2
+# Laravel 5.5.* Lumen 5.5.0 RESTful API with OAuth2
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
 [![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
