@@ -14,9 +14,6 @@ This API includes create,update,index,view & delete actions authenticated by OAu
 
 This API also includes a developer dashboard with the API documentation which is developed in Laravel 5.5. This will be useful to manage your developers access to the API documentation.
 
-
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
-
 DEMO
 -------------------
 ```
