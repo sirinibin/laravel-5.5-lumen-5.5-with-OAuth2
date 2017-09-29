@@ -9,15 +9,25 @@
 This is a Laravel Lumen 5.5.0 based RESTful API template with OAuth2 authentication/security which can be used to start building your own custom RESTful API with OAuth2 without setting up everything from scratch for your app.
 The template contains create,update,index,view & delete actions authenticated by OAuth2 for the data model "employees" with the verbs POST,PUT,GET,GET & DELETE respectively.
 
+This template also includes a developer dashboard with API documentation which is developed in Laravel 5.5. This will be useful to manage developers access to your API documenation.
+
+
 Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+
+DEMO
+-------------------
+```
+http://laravel-lumen-rest.dockerboxes.us
+Login: developer/developer
+```
 
 ## Official Documentation
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+Documentation for this template can be found on the [Lumen RESTful API with OAuth2 Documenation](http://laravel-lumen-rest.dockerboxes.us).
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this template, please send an e-mail to Sirin k at sirin@nintriva.com. All security vulnerabilities will be promptly addressed.
 
 ## License
 

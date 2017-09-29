@@ -25,10 +25,11 @@ class UserController extends Controller
         $this->validate($request, User::rules());
 
         $attributes = $request->all();
+
         $attributes['password'] = Hash::make($attributes['password']);
 
         $model = User::create($attributes);
-        $model->setPassword();
+
 
         $response = [
             'status' => 1,

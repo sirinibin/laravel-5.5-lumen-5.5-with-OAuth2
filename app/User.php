@@ -14,14 +14,14 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 {
     use Authenticatable, Authorizable;
 
-    protected $table="user";
+    protected $table="users";
 
     static public function rules($id=NULL)
     {
         return [
-            'username' => 'required|unique:user,username,'.$id,
+            'username' => 'required|unique:users,username,'.$id,
             'password' => 'required',
-            'email' => 'required|email|unique:user,email,'.$id,
+            'email' => 'required|email|unique:users,email,'.$id,
         ];
     }
     static public function authorizeRules()
@@ -29,6 +29,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return [
             'username' => 'required',
             'password' => 'required',
+        ];
+    }
+    static public function accessTokenRules()
+    {
+        return [
+            'authorization_code' => 'required',
         ];
     }
 
@@ -39,7 +45,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'username', 'email',
+        'username', 'email','password','name',
     ];
 
     /**
@@ -51,10 +57,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'password',
         'password_reset_token'
     ];
-    public function setPassword(){
-        $this->password=Hash::make($this->password);
-        $this->save();
-    }
     static public function search($request)
     {
 
@@ -116,7 +118,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public static function authorize($attributes){
 
-        $model=User::where(['username'=>$attributes['username']])->select(['username','password'])->first();
+        $model=User::where(['username'=>$attributes['username']])->select(['id','username','password'])->first();
         if(!$model)
             return false;
 

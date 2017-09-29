@@ -24,9 +24,9 @@ $router->get('/', function () use ($router) {
 
 //'namespace' => 'App\Http\Controllers'
 //e5e7a35ac033ecb7508588f9197f68ed
-$router->group(['prefix' => 'api/v1'], function($app)
+$router->group(['prefix' => 'v1'], function($app)
 {
-    $app->post('users','UserController@create');
+    $app->post('register','UserController@create');
 
     $app->post('authorize','UserController@auth');
 
