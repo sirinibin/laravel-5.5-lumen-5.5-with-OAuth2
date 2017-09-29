@@ -8,7 +8,8 @@
 
 This is a RESTful API with OAuth2 authentication/security developed using Laravel Lumen 5.5.0.
 You can use this if you want to quick start developing your own custom RESTful API without much set up works to do.
-Hopefully this will definitely save a lot of your time to develop everything from the scratch as this API includes all the basic stuffs you need to get started.
+Hopefully this will save a lot of your time to develop everything from the scratch as this API includes all the basic stuffs you need to get started.
+
 This API includes create,update,index,view & delete actions authenticated by OAuth2 for a sample data model "employees" with the verbs POST,PUT,GET,GET & DELETE respectively.
 
 This API also includes a developer dashboard with the API documentation which is developed in Laravel 5.5. This will be useful to manage your developers access to the API documentation.
