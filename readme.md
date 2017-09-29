@@ -7,8 +7,8 @@
 [![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
 
 This is a RESTful API with OAuth2 authentication/security developed using Laravel Lumen 5.5.0.
-You can use this if you want to quick start developing your own custom RESTful API without much set up works to do.
-Hopefully this will save a lot of your time to develop everything from the scratch as this API includes all the basic stuffs you need to get started.
+You can use this if you want to quick start developing your own custom RESTful API by skipping 95% of your scratch works.
+Hopefully this will save lot of your time as this API includes all the basic stuffs you need to get started.
 
 This API includes create,update,index,view & delete actions authenticated by OAuth2 for a sample data model "employees" with the verbs POST,PUT,GET,GET & DELETE respectively.
 

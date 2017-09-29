@@ -85,7 +85,7 @@
 
                 <div class="links">
                     <a href="{{ url('/v1') }}">Documentation</a>
-                    <a target="_blank" href="https://github.com/sirinibin/laravel-5.5.--lumen-5.5.0-with-OAuth2">GitHub</a>
+                    <a target="_blank" href="https://github.com/sirinibin/laravel-5.5-lumen-5.5-with-OAuth2">GitHub</a>
                     <a href="mailto:sirin@nintriva.com"> Support</a>
                     <a target="_blank" href="https://www.linkedin.com/in/startup-tech-consultant/"> Developed by</a>
                 </div>
