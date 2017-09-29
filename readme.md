@@ -17,7 +17,7 @@ This API also includes a developer dashboard with the API documentation which is
 DEMO
 -------------------
 ```
-[http://laravel-lumen-rest.dockerboxes.us](http://laravel-lumen-rest.dockerboxes.us)
+http://laravel-lumen-rest.dockerboxes.us
 Login: developer/developer
 ```
 
