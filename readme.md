@@ -6,10 +6,12 @@
 [![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
 [![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
 
-This is a RESTful API with OAuth2 authentication/security developed using Laravel Lumen 5.5.0 which can be used to start building your own custom RESTful API with OAuth2 so that you don't need to set up everything from scratch.
+This is a RESTful API with OAuth2 authentication/security developed using Laravel Lumen 5.5.0.
+You can use this if you want to quick start developing your own custom RESTful API without much set up works to do.
+Hopefully this will definitely save a lot of your time to develop everything from the scratch as this API includes all the basic stuffs you need to get started.
 This API includes create,update,index,view & delete actions authenticated by OAuth2 for a sample data model "employees" with the verbs POST,PUT,GET,GET & DELETE respectively.
 
-This repo. also includes a developer dashboard with the API documentation  developed in Laravel 5.5. This will be useful to manage your developers access to the API documentation.
+This API also includes a developer dashboard with the API documentation which is developed in Laravel 5.5. This will be useful to manage your developers access to the API documentation.
 
 
 Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
