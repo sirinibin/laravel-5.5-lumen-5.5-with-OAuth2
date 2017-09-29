@@ -25,6 +25,49 @@ Login: developer/developer
 
 Documentation for this RESTful API can be found on the [Lumen RESTful API with OAuth2 Documenation](http://laravel-lumen-rest.dockerboxes.us).
 
+INSTALLATION
+-------------------
+```
+Step1. cd /var/www
+git clone -b master https://github.com/sirinibin/laravel-5.5-lumen-5.5-with-OAuth2.git laravel-api
+
+Note:Make sure you have  at least php7.1  or php7.0  or else you may face some issues while installing laravel lumen.
+
+Step2. cd laravel-api
+       composer install
+
+Step3.Create a database named "laravel_api" in your mysql or any other database software.
+
+Step4.cp .env.example .env
+
+Step5. vim .env and update the db details
+
+Step6.php artisan key:generate
+
+Step7.php artisan migrate
+
+Step8. cd developers and run step3-8 once again.
+
+Step9. Point API end point URL to /var/www/laravel-api/public
+
+      eg: http://laravel-lumen-rest-api.dockerboxes.us
+
+Step10. Point API developers Dashboard URL to /var/www/laravel-api/developers/public
+
+       eg:http://laravel-lumen-rest.dockerboxes.us
+
+Step11. cd /var/www/laravel-api && sudo chmod -R 777 storage
+
+Step12. cd /var/www/laravel-api/developers && sudo chmod -R 777 storage
+
+Step13. vim /var/www/laravel-api/developers/.env
+
+    API_HOST_LOCAL=localhost:8004
+
+    API_HOST_PRODUCTION=laravel-lumen-rest-api.dockerboxes.us
+
+```
+
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within this template, please send an e-mail to Sirin k at sirin@nintriva.com. All security vulnerabilities will be promptly addressed.
