@@ -14,7 +14,7 @@ This API includes create,update,index,view & delete actions authenticated by OAu
 
 This API also includes a developer dashboard with the API documentation which is developed in Laravel 5.5. This will be useful to manage your developers access to the API documentation.
 
-DEMO
+[DEMO](http://laravel-lumen-rest.dockerboxes.us)
 -------------------
 ```
 http://laravel-lumen-rest.dockerboxes.us
