@@ -6,10 +6,10 @@
 [![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
 [![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
 
-This is a Laravel Lumen 5.5.0 based RESTful API template with OAuth2 authentication/security which can be used to start building your own custom RESTful API with OAuth2 without setting up everything from scratch for your app.
-The template contains create,update,index,view & delete actions authenticated by OAuth2 for the data model "employees" with the verbs POST,PUT,GET,GET & DELETE respectively.
+This is a RESTful API with OAuth2 authentication/security developed using Laravel Lumen 5.5.0 which can be used to start building your own custom RESTful API with OAuth2 so that you don't need to set up everything from scratch.
+This API includes create,update,index,view & delete actions authenticated by OAuth2 for a sample data model "employees" with the verbs POST,PUT,GET,GET & DELETE respectively.
 
-This template also includes a developer dashboard with API documentation which is developed in Laravel 5.5. This will be useful to manage developers access to your API documenation.
+This repo. also includes a developer dashboard with the API documentation  developed in Laravel 5.5. This will be useful to manage your developers access to the API documentation.
 
 
 Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
@@ -23,7 +23,7 @@ Login: developer/developer
 
 ## Official Documentation
 
-Documentation for this template can be found on the [Lumen RESTful API with OAuth2 Documenation](http://laravel-lumen-rest.dockerboxes.us).
+Documentation for this RESTful API can be found on the [Lumen RESTful API with OAuth2 Documenation](http://laravel-lumen-rest.dockerboxes.us).
 
 ## Security Vulnerabilities
 
