@@ -44,7 +44,7 @@ Step6.php artisan key:generate
 
 Step7.php artisan migrate
 
-Step8. cd developers and repeat step2,4,5 & 6.
+Step8. cd developers & run composer install then repeat step4,5 & 6.
 
 Step9. Point API end point URL to /var/www/laravel-api/public
 
