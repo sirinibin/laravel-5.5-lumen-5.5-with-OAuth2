@@ -195,9 +195,14 @@ class UserController extends Controller
     {
 
         $model = $this->findModel($id);
-        $this->validate($request, User::rules($id));
+        $this->validate($request, User::updateRules($id));
 
         $model->username = $request->input('username');
+        $new_password=$request->input('password');
+
+        if(!empty($new_password)){
+            $model->password = Hash::make($new_password);
+        }
         $model->email = $request->input('email');
         $model->save();
 
