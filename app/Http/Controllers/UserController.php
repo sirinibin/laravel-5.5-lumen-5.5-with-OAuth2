@@ -150,16 +150,7 @@ class UserController extends Controller
     public function logout(Request $request)
     {
 
-        $headers = $request->headers->all();
-
-
-        if (!empty($headers['x-access-token'][0])) {
-
-            $token = $headers['x-access-token'][0];
-
-        } else if ($request->input('access_token')) {
-            $token = $request->input('access_token');
-        }
+        $token = $this->getAccessToken($request);
 
         $model = AccessTokens::where(['token' => $token])->first();
 
@@ -198,15 +189,33 @@ class UserController extends Controller
         $this->validate($request, User::updateRules($id));
 
         $model->username = $request->input('username');
-        $new_password=$request->input('password');
+        $new_password = $request->input('password');
 
-        if(!empty($new_password)){
+        $response = [
+            'status' => 1,
+        ];
+
+
+        if (!empty($new_password)) {
             $model->password = Hash::make($new_password);
+
+            $token = $this->getAccessToken($request);
+
+            if ($new_token = $this->refreshAccesstoken($token)) {
+
+                $response['new_access_token'] = $new_token;
+            }
         }
-        $model->email = $request->input('email');
+        $email = $request->input('email');
+
+        if (!empty($email))
+            $model->email = $email;
+
         $model->save();
 
-        return response()->json($model, 200, [], JSON_PRETTY_PRINT);
+        $response['data'] = $model;
+
+        return response()->json($response, 200, [], JSON_PRETTY_PRINT);
     }
 
     public function deleteRecord($id)
@@ -331,6 +340,24 @@ class UserController extends Controller
 
             return false;
         }
+    }
+
+    public function getAccessToken($request)
+    {
+
+        $headers = $request->headers->all();
+
+        $token = false;
+
+        if (!empty($headers['x-access-token'][0])) {
+
+            $token = $headers['x-access-token'][0];
+
+        } else if ($request->input('access_token')) {
+            $token = $request->input('access_token');
+        }
+
+        return $token;
     }
 }
 

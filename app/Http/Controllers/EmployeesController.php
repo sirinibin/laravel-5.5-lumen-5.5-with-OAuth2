@@ -33,7 +33,11 @@ class EmployeesController extends Controller
     public function view($id)
     {
         $model = $this->findModel($id);
-        return response()->json($model, 200, [], JSON_PRETTY_PRINT);
+        $response = [
+            'status' => 1,
+            'data' => $model
+        ];
+        return response()->json($response, 200, [], JSON_PRETTY_PRINT);
     }
 
     public function update(Request $request, $id)
@@ -46,7 +50,12 @@ class EmployeesController extends Controller
         $model->email = $request->input('email');
         $model->save();
 
-        return response()->json($model, 200, [], JSON_PRETTY_PRINT);
+        $response = [
+            'status' => 1,
+            'data' => $model
+        ];
+
+        return response()->json($response, 200, [], JSON_PRETTY_PRINT);
     }
 
     public function deleteRecord($id)
@@ -65,7 +74,13 @@ class EmployeesController extends Controller
 
     public function index(Request $request)
     {
-        $response = Employees::search($request);
+        $models = Employees::search($request);
+
+        $response = [
+            'status' => 1,
+            'data' => $models
+        ];
+
         return response()->json($response, 200, [], JSON_PRETTY_PRINT);
 
     }
