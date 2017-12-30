@@ -203,7 +203,7 @@ class UserController extends Controller
 
             if ($new_token = $this->refreshAccesstoken($token)) {
 
-                $response['new_access_token'] = $new_token;
+                $response['new_access_token'] = $new_token->token;
             }
         }
         $email = $request->input('email');
