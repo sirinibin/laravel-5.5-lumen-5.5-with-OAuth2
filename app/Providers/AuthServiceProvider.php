@@ -40,7 +40,7 @@ class AuthServiceProvider extends ServiceProvider
                 return $this->findIdentityByAccessToken($headers['x-access-token'][0]);
             }
             else if ($request->input('access_token')) {
-                return $this->findIdentityByAccessToken($request->input('api_token'));
+                return $this->findIdentityByAccessToken($request->input('access_token'));
             }
 
             /*
