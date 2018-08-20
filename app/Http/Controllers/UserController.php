@@ -266,7 +266,11 @@ class UserController extends Controller
                 'errors' => $validator->errors()
             ];
 
-            response()->json($response, 400, [], JSON_PRETTY_PRINT)->send();
+
+
+            response()->json($response, 400, [], JSON_PRETTY_PRINT)
+                ->header('Access-Control-Allow-Origin','*')
+                ->send();
             die();
 
         }
