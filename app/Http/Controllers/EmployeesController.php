@@ -10,7 +10,7 @@ class EmployeesController extends Controller
 {
     public function __construct(Request $request)
     {
-        $this->middleware('auth',['except'=>['index','view','create']]);
+        $this->middleware('auth',['except'=>[]]);
 
     }
 
