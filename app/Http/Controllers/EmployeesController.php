@@ -111,9 +111,14 @@ class EmployeesController extends Controller
                 'status' => 0,
                 'errors' => $validator->errors()
             ];
+            
 
             response()->json($response, 400, [], JSON_PRETTY_PRINT)
                 ->header('Access-Control-Allow-Origin','*')
+                ->header('Access-Control-Allow-Origin','POST, GET, OPTIONS, PUT, DELETE')
+                ->header('Access-Control-Allow-Credentials','true')
+                ->header('AAccess-Control-Max-Age','86400')
+                ->header('Access-Control-Allow-Headers','*')
                 ->send();
             die();
 
