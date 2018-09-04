@@ -60,7 +60,7 @@ class Employees extends Model
         }
 
         $data=$query->get();
-        $data2=$query->all();
+        //$data2=$query->all();
 
 
         return [
@@ -68,7 +68,7 @@ class Employees extends Model
             'data' => $data,
             'page' => (int)$page,
             'size' => $limit,
-            'totalCount' => (int)$data2->count()
+            'totalCount' => (int)$data->count()
         ];
     }
 }
