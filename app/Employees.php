@@ -36,6 +36,7 @@ class Employees extends Model
             ->limit($limit)
             ->offset($offset);
 
+
         if(isset($params['id'])) {
             $query->where(['id' => $params['id']]);
         }
@@ -59,6 +60,7 @@ class Employees extends Model
         }
 
         $data=$query->get();
+        $data2=$query->all();
 
 
         return [
@@ -66,7 +68,7 @@ class Employees extends Model
             'data' => $data,
             'page' => (int)$page,
             'size' => $limit,
-            'totalCount' => (int)$data->count()
+            'totalCount' => (int)$data2->count()
         ];
     }
 }
