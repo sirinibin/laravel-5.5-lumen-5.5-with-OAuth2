@@ -58,7 +58,12 @@ class Employees extends Model
 
 
         if(isset($order)){
-            $query->orderBy($order);
+            if (strpos($order, 'desc') !== false) {
+                $query->orderBy($order,'DESC');
+            }else {
+                $query->orderBy($order,'ASC');
+            }
+
         }
 
         $totalCount=$query->count();
