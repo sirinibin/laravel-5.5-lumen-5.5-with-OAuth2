@@ -58,15 +58,7 @@ class Employees extends Model
 
 
         if(isset($order)){
-            $order=strtolower($order);
-            if (strpos($order, 'desc') !== false) {
-
-                $order=str_replace("desc","",$order);
-                $query->orderBy($order,'DESC');
-            }else {
-                $order=str_replace("asc","",$order);
-                $query->orderBy($order,'ASC');
-            }
+              $query->orderByRaw($order);
 
         }
 
