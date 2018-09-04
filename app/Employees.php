@@ -32,9 +32,11 @@ class Employees extends Model
 
         $offset = ($page - 1) * $limit;
 
-        $query = Employees::select(['id', 'name', 'email', 'created_at', 'updated_at'])
-            ->limit($limit)
-            ->offset($offset);
+        $query = Employees::select(['id', 'name', 'email', 'created_at', 'updated_at']);
+            //->limit($limit)
+            //->offset($offset);
+
+       // $count = Employees::where('active', 1)->count();
 
 
         if(isset($params['id'])) {
@@ -59,16 +61,18 @@ class Employees extends Model
             $query->orderBy($order);
         }
 
-        $data=$query->get();
-        //$data2=$query->all();
+        $totalCount=$query->count();
 
+        $query->limit($limit)->offset($offset);
+
+        $data=$query->get();
 
         return [
             'status'=>1,
             'data' => $data,
             'page' => (int)$page,
             'size' => $limit,
-            'totalCount' => (int)$data->count()
+            'totalCount' => (int)$totalCount
         ];
     }
 }
