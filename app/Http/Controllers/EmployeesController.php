@@ -115,7 +115,7 @@ class EmployeesController extends Controller
 
             if ($request->isMethod('OPTIONS'))
             {
-                //return response()->json('{"method":"OPTIONS"}', 200, $headers);
+                return response()->json('{"method":"OPTIONS"}', 200, $headers);
 
 
             }
@@ -124,7 +124,7 @@ class EmployeesController extends Controller
                 ->header('Access-Control-Allow-Origin','*')
                 ->header('Access-Control-Allow-Methods','POST, GET, OPTIONS, PUT, DELETE')
                 ->header('Access-Control-Allow-Credentials','true')
-                 >header('AAccess-Control-Max-Age','86400')
+                ->header('Access-Control-Max-Age','86400')
                 ->header('Access-Control-Allow-Headers','*')
                 ->send();
             die();
