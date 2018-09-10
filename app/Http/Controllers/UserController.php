@@ -139,7 +139,9 @@ class UserController extends Controller
 
             $response = [
                 'status' => 0,
-                'error' => "Username or Password is wrong"
+                'errors' => [
+                               "password"=>["Username or Password is wrong"]
+                            ]
             ];
 
             return response()->json($response, 400, [], JSON_PRETTY_PRINT);
