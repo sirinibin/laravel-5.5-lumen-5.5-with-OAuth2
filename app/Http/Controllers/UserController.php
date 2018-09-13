@@ -284,8 +284,18 @@ class UserController extends Controller
                     'Content-Type'=>'application/json'
                 ];
 
+                return response("",200)
+                    ->header('Access-Control-Allow-Origin','*')
+                    ->header('Access-Control-Allow-Methods','POST, GET, OPTIONS, PUT, DELETE')
+                    ->header('Access-Control-Allow-Credentials','true')
+                    ->header('Access-Control-Max-Age','86400')
+                    ->header('Access-Control-Allow-Headers','*')
+                    ->header('Content-Length','0')
+                    ->header('Content-Type','text/plain')
+                    ;
+
                 //return response()->json('{"method":"OPTIONS"}', 400, $headers);
-                return response()->json(["method"=>"OPTIONS"], 200, $headers);
+                //return response()->json(["method"=>"OPTIONS"], 200, $headers);
             }
 
             response()->json($response, 400, [], JSON_PRETTY_PRINT)
