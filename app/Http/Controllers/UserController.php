@@ -272,6 +272,7 @@ class UserController extends Controller
 
             response()->json($response, 400, [], JSON_PRETTY_PRINT)
                 ->header('Access-Control-Allow-Origin','*')
+                ->header('Access-Control-Allow-Methods','POST, GET, OPTIONS, PUT, DELETE')
                 ->send();
             die();
 
