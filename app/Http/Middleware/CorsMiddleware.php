@@ -39,7 +39,7 @@ class CorsMiddleware
            // header("Content-Length: 0");
            // header("Content-Type: text/plain");
            // return response()->json('{"method":"OPTIONS"}', 200, $headers);
-            return response()->json(["method"=>"OPTIONS"], 200, $headers);
+            return response()->json([], 200, $headers);
         }
 
         $response = $next($request);
