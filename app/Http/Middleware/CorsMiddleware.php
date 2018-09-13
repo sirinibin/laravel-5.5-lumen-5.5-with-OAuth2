@@ -33,8 +33,9 @@ class CorsMiddleware
                 'Access-Control-Max-Age'           => '86400',
                 // 'Access-Control-Allow-Headers'     => 'Content-Type, Authorization, X-Requested-With',
                 'Access-Control-Allow-Headers'     => '*',
-                'Content-Length'=>'0',
+                'Content-Length'=>'2',
                 'Content-Type'=>'application/json'
+                // 'Content-Type'=>'application/json'
             ];
            // header("Content-Length: 0");
            // header("Content-Type: text/plain");
