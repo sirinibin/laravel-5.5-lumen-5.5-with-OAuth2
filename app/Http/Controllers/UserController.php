@@ -282,7 +282,8 @@ class UserController extends Controller
                     'Access-Control-Allow-Headers'     => '*'
                 ];
 
-                return response()->json('{"method":"OPTIONS"}', 400, $headers);
+                //return response()->json('{"method":"OPTIONS"}', 400, $headers);
+                return response()->json(["method"=>"OPTIONS"], 200, $headers);
             }
 
             response()->json($response, 400, [], JSON_PRETTY_PRINT)
