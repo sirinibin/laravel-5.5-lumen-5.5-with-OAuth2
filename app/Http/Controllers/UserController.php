@@ -270,6 +270,21 @@ class UserController extends Controller
 
 
 
+
+            if ($request->isMethod('OPTIONS'))
+            {
+                $headers = [
+                    'Access-Control-Allow-Origin'      => '*',
+                    'Access-Control-Allow-Methods'     => 'POST, GET, OPTIONS, PUT, DELETE',
+                    'Access-Control-Allow-Credentials' => 'true',
+                    'Access-Control-Max-Age'           => '86400',
+                    // 'Access-Control-Allow-Headers'     => 'Content-Type, Authorization, X-Requested-With',
+                    'Access-Control-Allow-Headers'     => '*'
+                ];
+                
+                return response()->json('{"method":"OPTIONS"}', 200, $headers);
+            }
+
             response()->json($response, 400, [], JSON_PRETTY_PRINT)
                 ->header('Access-Control-Allow-Origin','*')
                 ->header('Access-Control-Allow-Methods','POST, GET, OPTIONS, PUT, DELETE')
