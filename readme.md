@@ -15,13 +15,13 @@ This API also includes a developer dashboard with the API documentation which is
 [DEMO](http://laravel-lumen-rest.dockerboxes.us)
 -------------------
 ```
-http://laravel-lumen-rest.dockerboxes.us
+http://developers.nintriva.net/
 Login: developer/developer
 ```
 
 ## Official Documentation
 
-Documentation for this RESTful API can be found on the [Lumen RESTful API with OAuth2 Documenation](http://laravel-lumen-rest.dockerboxes.us).
+Documentation for this RESTful API can be found on the [Lumen RESTful API with OAuth2 Documenation](http://developers.nintriva.net).
 
 INSTALLATION
 -------------------

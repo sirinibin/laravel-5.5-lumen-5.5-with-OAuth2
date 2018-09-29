@@ -26,6 +26,7 @@ class UserController extends Controller
 
         $attributes = $request->all();
 
+
         $attributes['password'] = Hash::make($attributes['password']);
 
         $model = User::create($attributes);
@@ -36,11 +37,13 @@ class UserController extends Controller
             'data' => $model
         ];
 
-        return response()->json($response, 200, [], JSON_PRETTY_PRINT);
+        return response()
+               ->json($response, 200, [], JSON_PRETTY_PRINT)
+               ->setCallback($request->input('callback'));
 
     }
 
-    public function me()
+    public function me(Request $request)
     {
         $data = Auth::user()->getAttributes();
 
@@ -52,7 +55,9 @@ class UserController extends Controller
             'data' => $data
         ];
 
-        return response()->json($response, 200, [], JSON_PRETTY_PRINT);
+        return response()
+            ->json($response, 200, [], JSON_PRETTY_PRINT)
+            ->setCallback($request->input('callback'));
     }
 
     public function accesstoken(Request $request)
@@ -68,7 +73,9 @@ class UserController extends Controller
                 'status' => 0,
                 'error' => "Invalid Authorization Code"
             ];
-            return response()->json($response, 400, [], JSON_PRETTY_PRINT);
+            return response()
+                ->json($response, 400, [], JSON_PRETTY_PRINT)
+                ->setCallback($request->input('callback'));
         }
 
         $model = $this->createAccesstoken($attributes['authorization_code']);
@@ -82,7 +89,9 @@ class UserController extends Controller
             'data' => $data
         ];
 
-        return response()->json($response, 200, [], JSON_PRETTY_PRINT);
+        return response()
+            ->json($response, 200, [], JSON_PRETTY_PRINT)
+            ->setCallback($request->input('callback'));
 
 
     }
@@ -98,7 +107,9 @@ class UserController extends Controller
                 'status' => 0,
                 'error' => "Invalid Access token"
             ];
-            return response()->json($response, 400, [], JSON_PRETTY_PRINT);
+            return response()
+                ->json($response, 400, [], JSON_PRETTY_PRINT)
+                ->setCallback($request->input('callback'));
         }
 
 
@@ -133,7 +144,9 @@ class UserController extends Controller
                 'data' => $data
             ];
 
-            return response()->json($response, 200, [], JSON_PRETTY_PRINT);
+            return response()
+                ->json($response, 200, [], JSON_PRETTY_PRINT)
+                ->setCallback($request->input('callback'));
 
         } else {
 
@@ -144,7 +157,9 @@ class UserController extends Controller
                             ]
             ];
 
-            return response()->json($response, 400, [], JSON_PRETTY_PRINT);
+            return response()
+                ->json($response, 400, [], JSON_PRETTY_PRINT)
+                ->setCallback($request->input('callback'));
 
         }
     }
@@ -171,23 +186,26 @@ class UserController extends Controller
                 'status' => 0,
                 'message' => "Invalid request"
             ];
-            return response()->json($response, 400, [], JSON_PRETTY_PRINT);
+            return response()
+                ->json($response, 400, [], JSON_PRETTY_PRINT)
+                ->setCallback($request->input('callback'));
 
         }
 
     }
 
 
-    public function view($id)
+    public function view($id,Request $request)
     {
-        $model = $this->findModel($id);
-        return response()->json($model, 200, [], JSON_PRETTY_PRINT);
+        $model = $this->findModel($id,$request);
+        return response()->json($model, 200, [], JSON_PRETTY_PRINT)
+            ->setCallback($request->input('callback'));
     }
 
     public function update(Request $request, $id)
     {
 
-        $model = $this->findModel($id);
+        $model = $this->findModel($id,$request);
         $this->validate($request, User::updateRules($id));
 
         $model->username = $request->input('username');
@@ -217,10 +235,11 @@ class UserController extends Controller
 
         $response['data'] = $model;
 
-        return response()->json($response, 200, [], JSON_PRETTY_PRINT);
+        return response()->json($response, 200, [], JSON_PRETTY_PRINT)
+            ->setCallback($request->input('callback'));
     }
 
-    public function deleteRecord($id)
+    public function deleteRecord($id,Request $request)
     {
         $model = $this->findModel($id);
         $model->delete();
@@ -231,17 +250,20 @@ class UserController extends Controller
             'message' => 'Removed successfully.'
         ];
 
-        return response()->json($response, 200, [], JSON_PRETTY_PRINT);
+        return response()->json($response, 200, [], JSON_PRETTY_PRINT)
+            ->setCallback($request->input('callback'));
     }
 
     public function index(Request $request)
     {
         $response = User::search($request);
-        return response()->json($response, 200, [], JSON_PRETTY_PRINT);
+        return response()->json($response, 200, [], JSON_PRETTY_PRINT)
+            ->setCallback($request->input('callback'));
+
 
     }
 
-    public function findModel($id)
+    public function findModel($id,Request $request)
     {
 
         $model = User::find($id);
@@ -251,7 +273,9 @@ class UserController extends Controller
                 'errors' => "Invalid Record"
             ];
 
-            response()->json($response, 400, [], JSON_PRETTY_PRINT)->send();
+            response()->json($response, 400, [], JSON_PRETTY_PRINT)
+                ->setCallback($request->input('callback'))
+                ->send();
             die;
         }
         return $model;
@@ -276,7 +300,7 @@ class UserController extends Controller
                 $headers = [
                     'Access-Control-Allow-Origin'      => '*',
                     'Access-Control-Allow-Methods'     => 'OPTIONS,GET,POST, PUT, DELETE',
-                    'Access-Control-Allow-Credentials' => 'true',
+                   // 'Access-Control-Allow-Credentials' => 'true',
                     'Access-Control-Max-Age'           => '86400',
                     // 'Access-Control-Allow-Headers'     => 'Content-Type, Authorization, X-Requested-With',
                     'Access-Control-Allow-Headers'     => '*',
@@ -287,23 +311,23 @@ class UserController extends Controller
                 return response("",200)
                     ->header('Access-Control-Allow-Origin','*')
                     ->header('Access-Control-Allow-Methods','POST, GET, OPTIONS, PUT, DELETE')
-                    ->header('Access-Control-Allow-Credentials','true')
+                   // ->header('Access-Control-Allow-Credentials','true')
                     ->header('Access-Control-Max-Age','86400')
                     ->header('Access-Control-Allow-Headers','*')
                     ->header('Content-Length','0')
-                    ->header('Content-Type','text/plain')
-                    ;
+                    ->header('Content-Type','text/plain');
 
                 //return response()->json('{"method":"OPTIONS"}', 400, $headers);
-                //return response()->json(["method"=>"OPTIONS"], 200, $headers);
+                return response()->json(["method"=>"OPTIONS"], 200, $headers);
             }
 
             response()->json($response, 400, [], JSON_PRETTY_PRINT)
                 ->header('Access-Control-Allow-Origin','*')
                 ->header('Access-Control-Allow-Methods','POST, GET, OPTIONS, PUT, DELETE')
-                ->header('Access-Control-Allow-Credentials','true')
+               // ->header('Access-Control-Allow-Credentials','true')
                 ->header('Access-Control-Max-Age','86400')
                 ->header('Access-Control-Allow-Headers','*')
+                ->setCallback($request->input('callback'))
                 ->send();
             die();
 
